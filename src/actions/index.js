@@ -69,10 +69,10 @@ export function addSearchResult(movie) {
     return obj;
 }
 
-export function handleMovieSearch(movie) {
-    console.log('hiting api', movie);
+export function handleMovieSearch(searchText) {
+    // console.log('hiting api', movie);
     return function (dispatch) {
-        fetch(`http://www.omdbapi.com/?t=${movie}&apikey=891a9115`)
+        fetch(`http://www.omdbapi.com/?apikey=891a9115&t=${searchText}`)
             .then(response => response.json())
             .then(movie => {
                 console.log('movie', movie);

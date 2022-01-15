@@ -8,18 +8,7 @@ import { data as moviesList } from '../data';
 
 class App extends React.Component {
   componentDidMount() {
-    // const { store } = this.props;
-
-    // store.subscribe(() => {
-    //   console.log('updated');
-    //   this.forceUpdate();
-    //})
-    //make api call
-    // dispatch actions
     this.props.dispatch(addMovies(moviesList));
-
-    console.log('STATE', this.props.store);
-
   }
 
 
@@ -27,8 +16,6 @@ class App extends React.Component {
   isMovieFavourite = (movie) => {
     const { movies } = this.props;
     const index = movies.favourites.indexOf(movie);
-    // console.log('index', index);
-    // console.log('favourite', favourites);
 
     if (index !== -1) {
       //found the movie
@@ -75,16 +62,6 @@ class App extends React.Component {
     );
   }
 }
-// class AppWrapper extends React.Component {
-//   render() {
-//     return (
-//       <StoreContext.Consumer >
-//         {(store) => <App store={store} />}
-//       </StoreContext.Consumer>
-//     );
-//   }
-// }
-
 function mapStateToProps(state) {
   return {
     movies: state.movies,

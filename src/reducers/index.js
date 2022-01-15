@@ -7,7 +7,6 @@ import {
     ADD_SEARCH_RESULT,
     ADD_MOVIE_TO_LIST
 } from '../actions';
-import { stat } from 'fs';
 
 const initialMoviesState = {
     list: [],
@@ -16,15 +15,6 @@ const initialMoviesState = {
 
 }
 export function movies(state = initialMoviesState, action) {
-    // console.log('adding movies')
-    // if (action.type === ADD_MOVIES) {
-    //     return {
-    //         ...state,
-    //         list: action.movies
-    //     }
-    // }
-    // return state;
-    console.log('movie reducer');
 
     switch (action.type) {
         case ADD_MOVIES:
@@ -68,8 +58,6 @@ const initialSearchState = {
 };
 
 export function search(state = initialSearchState, action) {
-    // console.log('search reducer');
-    // return state;
     switch (action.type) {
         case ADD_SEARCH_RESULT:
             return {
@@ -80,18 +68,6 @@ export function search(state = initialSearchState, action) {
             return state;
     }
 }
-
-const initialRootReducer = {
-    movie: initialMoviesState,
-    search: initialSearchState
-};
-
-// export default function rootReducer(state = initialRootReducer, action) {
-//     return {
-//         movies: movies(state.movies, action),
-//         search: search(state.search, action)
-//     }
-// }
 
 export default combineReducers({
     movies,
